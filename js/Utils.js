@@ -58,3 +58,23 @@ function selectEleById(idText) {
 function selectEleByClass(classText) {
   return document.getElementsByClassName(classText);
 }
+
+function getGETParams() {
+  const params = {};
+
+  let raw = window.location.href.split("?");
+
+  if (raw.length > 1) {
+    raw = raw[1].split("&");
+
+    raw.forEach((pair) => {
+      pair = pair.split("=");
+
+      if (pair.length > 1) {
+        params[pair[0]] = decodeURI(pair[1]);
+      }
+    });
+  }
+
+  return params;
+}
