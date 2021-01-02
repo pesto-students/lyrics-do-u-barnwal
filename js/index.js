@@ -1,4 +1,8 @@
-function processSearch(ele) {
+var previewAudio = new Audio();
+
+function processSearch() {
+  let ele = selectEleById("inputKeyword");
+
   if (ele.value == "") {
     showInfoText("Go head search for something!");
     return;
@@ -65,7 +69,9 @@ function generateSingleSongItem(song = {}) {
     '<div class="album">' +
     ('<img src="' + song.album.cover_medium + '">') +
     '<div class="overlay">' +
-    '<img src="./assets/icons/play.png" title="Play Preview">' +
+    ('<img class="imgPlayPausePreview" src="./assets/icons/play.png" title="Play Preview" onclick="playPreview(this, \'' +
+      song.preview +
+      "')\">") +
     "</div>" +
     "</div>" +
     '<div class="description">' +
@@ -81,4 +87,19 @@ function generateSingleSongItem(song = {}) {
     "</div>" +
     "</div>"
   );
+}
+
+function playPreview(ele, audioURL) {
+  let elements = selectEleByClass("imgPlayPausePreview");
+
+  for (let i = 0; i < elements.length; i++)
+    elements[i].setAttribute("src", "./assets/icons/play.png");
+
+  ele.setAttribute("src", "./assets/icons/pause.png");
+
+  previewAudio.pause();
+  previewAudio.currentTime = 0;
+
+  previewAudio.src = audioURL;
+  previewAudio.play();
 }

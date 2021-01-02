@@ -18,8 +18,8 @@
       <div class="overlay">
         <h1 class="heading">Lyrics Do</h1>
         <div class="search">
-          <input type="text" placeholder="Search for artist or song..." oninput="processSearch(this)">
-          <button class="btn">
+          <input id="inputKeyword" type="text" placeholder="Search for artist or song..." oninput="processSearch()">
+          <button class="btn" onclick="processSearch()">
             <img src="./assets/icons/search.png" alt="">
           </button>
         </div>
