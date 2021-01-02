@@ -1,5 +1,9 @@
+var xhttp = new XMLHttpRequest();
+
 function sendRequest(reqURL, positiveCallback, negativeCallback) {
-  let xhttp = new XMLHttpRequest();
+  console.log("request:", reqURL);
+
+  xhttp.abort();
 
   let onFailure = () => {
     processServerResponse(
@@ -36,9 +40,19 @@ function sendRequest(reqURL, positiveCallback, negativeCallback) {
 }
 
 function processServerResponse(response, positiveCallback, negativeCallback) {
+  console.log("response:", response);
+
   if (response.status == "success") {
-    if (positiveCallback != null) positiveCallback(response.data);
+    if (positiveCallback != null) positiveCallback(response);
   } else {
-    if (negativeCallback != null) negativeCallback(response.data);
+    if (negativeCallback != null) negativeCallback(response);
   }
+}
+
+function selectEleById(idText) {
+  return document.getElementById(idText);
+}
+
+function selectEleByClass(classText) {
+  return document.getElementsByClassName(classText);
 }

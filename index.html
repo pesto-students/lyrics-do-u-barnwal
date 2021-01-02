@@ -18,7 +18,7 @@
       <div class="overlay">
         <h1 class="heading">Lyrics Do</h1>
         <div class="search">
-          <input type="text" placeholder="Search for artist or song...">
+          <input type="text" placeholder="Search for artist or song..." oninput="processSearch(this)">
           <button class="btn">
             <img src="./assets/icons/search.png" alt="">
           </button>
@@ -29,11 +29,11 @@
 
     <!-- - Content: Start - -->
     <div class="content">
-      <div class="text info">Go head search for something!</div>
+      <div id="txtInfo" class="text info">Go head search for something!</div>
 
-      <div class="inline-loader"><img src="./assets/loader.gif" alt=""></div>
+      <div id="loader" class="inline-loader" style="display: none;"><img src="./assets/loader.gif" alt=""></div>
 
-      <div class="list-songs">
+      <div id="listSongs" class="list-songs">
 
         <!-- + Single Song item: Start + -->
         <!-- <div class="single-song">
