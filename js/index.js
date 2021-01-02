@@ -1,9 +1,12 @@
 var previewAudio = new Audio();
+var previousURL = "";
+var nextURL = "";
 
-function processSearch() {
+function processSearch(url = "") {
   stopPreview();
 
   let ele = selectEleById("inputKeyword");
+  url = url != "" ? url : "https://api.lyrics.ovh/suggest/" + ele.value;
 
   if (ele.value == "") {
     showInfoText("Go head search for something!");
@@ -13,11 +16,14 @@ function processSearch() {
   showLoader();
 
   sendRequest(
-    "https://api.lyrics.ovh/suggest/" + ele.value,
+    url,
     (res) => {
       if (res.data.length <= 0)
         showInfoText("No record found matching the searched keyword, sorry!");
       else {
+        previousURL = res.hasOwnProperty("prev") ? res.prev : "";
+        nextURL = res.hasOwnProperty("next") ? res.next : "";
+
         populateList(res.data);
         showList();
       }
@@ -53,6 +59,13 @@ function hideInfoText() {
 
 // + Pagination
 function showPagination(text = "") {
+  if (previousURL == "")
+    selectEleById("btnPrevious").setAttribute("disabled", true);
+  else selectEleById("btnPrevious").removeAttribute("disabled");
+
+  if (nextURL == "") selectEleById("btnNext").setAttribute("disabled", true);
+  else selectEleById("btnNext").removeAttribute("disabled");
+
   selectEleById("pagination").style.display = "block";
 }
 
@@ -103,6 +116,16 @@ function generateSingleSongItem(song = {}) {
     "</div>" +
     "</div>"
   );
+}
+
+function gotoPreviousPage() {
+  if (previousURL != "")
+    processSearch("https://cors-anywhere.herokuapp.com/" + previousURL);
+}
+
+function gotoNextPage() {
+  if (nextURL != "")
+    processSearch("https://cors-anywhere.herokuapp.com/" + nextURL);
 }
 
 function playPreview(ele, audioURL) {

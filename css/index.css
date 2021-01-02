@@ -276,8 +276,15 @@ main {
   transition: filter 0.2s, -webkit-filter 0.2s;
 }
 
+.btn:disabled {
+  background-color: darkgray !important;
+}
+
 .btn:hover {
   color: white;
+}
+
+.btn:hover:not(:disabled) {
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
 }

@@ -36,6 +36,8 @@ function sendRequest(reqURL, positiveCallback, negativeCallback) {
 
   xhttp.open("GET", reqURL, true);
 
+  xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
   xhttp.send();
 }
 
