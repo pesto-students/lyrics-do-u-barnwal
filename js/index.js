@@ -106,10 +106,18 @@ function generateSingleSongItem(song = {}) {
     '<div class="description">' +
     '<div class="artist">' +
     ('<img src="' + song.artist.picture_medium + '">') +
-    ('<h5><a href="#">' + song.artist.name + "</a></h5>") +
+    ('<h5><a href="?q=' +
+      fixedEncodeURIComponent(song.artist.name) +
+      '">' +
+      song.artist.name +
+      "</a></h5>") +
     "</div>" +
-    ('<h3><a href="#">' + song.title + "</a></h3>") +
-    ('<p><a href="#">' + song.album.title + "</a></p>") +
+    ("<h3><a>" + song.title + "</a></h3>") +
+    ('<p><a href="?q=' +
+      fixedEncodeURIComponent(song.album.title) +
+      '">' +
+      song.album.title +
+      "</a></p>") +
     "</div>" +
     '<div class="actions">' +
     ("<a href='./song.html?name=" +
@@ -159,3 +167,12 @@ function stopPreview() {
 function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, escape);
 }
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  let params = getGETParams();
+
+  if (params.hasOwnProperty("q")) {
+    selectEleById("inputKeyword").value = params.q;
+    processSearch();
+  }
+});
