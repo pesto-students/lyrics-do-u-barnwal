@@ -112,7 +112,11 @@ function generateSingleSongItem(song = {}) {
     ('<p><a href="#">' + song.album.title + "</a></p>") +
     "</div>" +
     '<div class="actions">' +
-    '<button class="btn">Show Lyrics</button>' +
+    ("<a href='./song.html?name=" +
+      fixedEncodeURIComponent(song.title) +
+      "&artist=" +
+      fixedEncodeURIComponent(song.artist.name) +
+      '\'" class="btn">Show Lyrics</a>') +
     "</div>" +
     "</div>"
   );
@@ -145,4 +149,8 @@ function playPreview(ele, audioURL) {
 function stopPreview() {
   previewAudio.pause();
   previewAudio.currentTime = 0;
+}
+
+function fixedEncodeURIComponent(str) {
+  return encodeURIComponent(str).replace(/[!'()*]/g, escape);
 }

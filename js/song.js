@@ -48,7 +48,7 @@ function hideInfoText() {
 // + Song
 function showSong(lyrics) {
   selectEleById("txtSongName").innerHTML = params.name;
-  selectEleById("txtSongAuthor").innerHTML = params.author;
+  selectEleById("txtSongAuthor").innerHTML = params.artist;
   selectEleById("songText").innerHTML = lyrics;
 
   selectEleById("songTitle").style.display = "block";
