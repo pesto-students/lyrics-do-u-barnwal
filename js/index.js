@@ -1,6 +1,8 @@
 var previewAudio = new Audio();
 
 function processSearch() {
+  stopPreview();
+
   let ele = selectEleById("inputKeyword");
 
   if (ele.value == "") {
@@ -26,6 +28,7 @@ function processSearch() {
   );
 }
 
+// + Loader
 function showLoader() {
   hideInfoText();
   hideList();
@@ -36,6 +39,7 @@ function hideLoader() {
   selectEleById("loader").style.display = "none";
 }
 
+// + Info Text
 function showInfoText(text = "") {
   hideLoader();
   hideList();
@@ -47,12 +51,24 @@ function hideInfoText() {
   selectEleById("txtInfo").style.display = "none";
 }
 
+// + Pagination
+function showPagination(text = "") {
+  selectEleById("pagination").style.display = "block";
+}
+
+function hidePagination() {
+  selectEleById("pagination").style.display = "none";
+}
+
+// + List
 function showList() {
   selectEleById("listSongs").style.display = "block";
+  showPagination();
 }
 
 function hideList() {
   selectEleById("listSongs").style.display = "none";
+  hidePagination();
 }
 
 function populateList(songs = []) {
@@ -97,9 +113,13 @@ function playPreview(ele, audioURL) {
 
   ele.setAttribute("src", "./assets/icons/pause.png");
 
-  previewAudio.pause();
-  previewAudio.currentTime = 0;
+  stopPreview();
 
   previewAudio.src = audioURL;
   previewAudio.play();
+}
+
+function stopPreview() {
+  previewAudio.pause();
+  previewAudio.currentTime = 0;
 }

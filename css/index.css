@@ -240,7 +240,17 @@ main {
 
 .content .list-songs .single-song .actions button {
   border-radius: 5px;
-  color: white;
+  font-weight: bold;
+  padding: 0.8em 1.2em;
+}
+
+.content .pagination {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.content .pagination button {
+  border-radius: 5px;
   font-weight: bold;
   padding: 0.8em 1.2em;
 }
@@ -254,6 +264,7 @@ main {
 
 .btn {
   background-color: #6b10f4 !important;
+  color: white;
   outline: none;
   border: none;
   cursor: pointer;
@@ -266,6 +277,7 @@ main {
 }
 
 .btn:hover {
+  color: white;
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
 }
