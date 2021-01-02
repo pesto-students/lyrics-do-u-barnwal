@@ -135,12 +135,17 @@ function gotoNextPage() {
 function playPreview(ele, audioURL) {
   let elements = selectEleByClass("imgPlayPausePreview");
 
+  stopPreview();
+
+  if (ele.src.includes("pause.png")) {
+    ele.setAttribute("src", "./assets/icons/play.png");
+    return;
+  }
+
   for (let i = 0; i < elements.length; i++)
     elements[i].setAttribute("src", "./assets/icons/play.png");
 
   ele.setAttribute("src", "./assets/icons/pause.png");
-
-  stopPreview();
 
   previewAudio.src = audioURL;
   previewAudio.play();
