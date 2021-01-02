@@ -12,17 +12,57 @@
 <body>
 
   <main>
+
+    <!-- - Header: Start - -->
     <div class="header">
       <div class="overlay">
         <h1 class="heading">Lyrics Do</h1>
         <div class="search">
           <input type="text" placeholder="Search for artist or song...">
-          <button>
+          <button class="btn">
             <img src="./assets/icons/search.png" alt="">
           </button>
         </div>
       </div>
     </div>
+    <!-- - Header: End - -->
+
+    <!-- - Content: Start - -->
+    <div class="content">
+      <!-- <div class="text info">Go head search for something!</div> -->
+      <div class="list-songs">
+
+        <!-- + Single Song item: Start + -->
+        <div class="single-song">
+
+          <div class="album">
+            <img
+              src="http://cdn-images.deezer.com/images/cover/80563ccd202b7115fb1d20cbed024124/250x250-000000-80-0-0.jpg">
+            <div class="overlay">
+              <img src="./assets/icons/play.png" title="Play Preview">
+            </div>
+          </div>
+
+          <div class="description">
+            <div class="artist">
+              <img
+                src="http://cdn-images.deezer.com/images/artist/ce50c83acd0fff3eb9ee9d68eb648fb1/250x250-000000-80-0-0.jpg">
+              <h5><a href="#">Glenn Miller</a></h5>
+            </div>
+            <h3><a href="#">Stairway to the Stars</a></h3>
+            <p><a href="#">Stop the wedding</a></p>
+          </div>
+
+          <div class="actions">
+            <button class="btn">Show Lyrics</button>
+          </div>
+
+        </div>
+        <!-- + Single Song item: End + -->
+
+      </div>
+    </div>
+    <!-- - Content: End - -->
   </main>
 
 </body>
