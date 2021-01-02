@@ -269,3 +269,13 @@ main {
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
 }
+
+.inline-loader {
+  text-align: center;
+  padding: 0;
+}
+
+.inline-loader img {
+  height: 120px;
+  margin: 0;
+}
