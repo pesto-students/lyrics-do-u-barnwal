@@ -191,6 +191,7 @@ main {
       -ms-flex: 1;
           flex: 1;
   padding: 1em;
+  cursor: default;
 }
 
 .content .list-songs .single-song .description h3,
@@ -198,6 +199,11 @@ main {
 .content .list-songs .single-song .description h5,
 .content .list-songs .single-song .description p {
   margin: 0;
+  text-transform: capitalize;
+}
+
+.content .list-songs .single-song .description h3 {
+  font-weight: normal !important;
 }
 
 .content .list-songs .single-song .description p {

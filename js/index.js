@@ -93,6 +93,19 @@ function populateList(songs = []) {
 }
 
 function generateSingleSongItem(song = {}) {
+  let keyword = selectEleById("inputKeyword").value.toLowerCase();
+
+  let searchMask = new RegExp(keyword, "ig");
+  let replaceMask = "<b>" + keyword + "</b>";
+
+  let albumName = song.album.title;
+  let songName = song.title;
+  let artistName = song.artist.name;
+
+  let _albumName = albumName.toLowerCase().replace(searchMask, replaceMask);
+  let _songName = songName.toLowerCase().replace(searchMask, replaceMask);
+  let _artistName = artistName.toLowerCase().replace(searchMask, replaceMask);
+
   return (
     '<div class="single-song">' +
     '<div class="album">' +
@@ -107,23 +120,23 @@ function generateSingleSongItem(song = {}) {
     '<div class="artist">' +
     ('<img src="' + song.artist.picture_medium + '">') +
     ('<h5><a href="?q=' +
-      fixedEncodeURIComponent(song.artist.name) +
+      fixedEncodeURIComponent(artistName) +
       '">' +
-      song.artist.name +
+      _artistName +
       "</a></h5>") +
     "</div>" +
-    ("<h3><a>" + song.title + "</a></h3>") +
+    ("<h3>" + _songName + "</h3>") +
     ('<p><a href="?q=' +
-      fixedEncodeURIComponent(song.album.title) +
+      fixedEncodeURIComponent(albumName) +
       '">' +
-      song.album.title +
+      _albumName +
       "</a></p>") +
     "</div>" +
     '<div class="actions">' +
     ("<a href='./song.html?name=" +
-      fixedEncodeURIComponent(song.title) +
+      fixedEncodeURIComponent(songName) +
       "&artist=" +
-      fixedEncodeURIComponent(song.artist.name) +
+      fixedEncodeURIComponent(artistName) +
       '\'" class="btn">Show Lyrics</a>') +
     "</div>" +
     "</div>"
