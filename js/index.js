@@ -1,3 +1,4 @@
+var corsProxy = "https://cors-proxy.isolpro.in?url=";
 var previewAudio = new Audio();
 var previousURL = "";
 var nextURL = "";
@@ -145,12 +146,11 @@ function generateSingleSongItem(song = {}) {
 
 function gotoPreviousPage() {
   if (previousURL != "")
-    processSearch("https://cors-proxy.isolpro.in?url=" + previousURL);
+    processSearch(corsProxy + encodeURIComponent(previousURL));
 }
 
 function gotoNextPage() {
-  if (nextURL != "")
-    processSearch("https://cors-proxy.isolpro.in?url=" + nextURL);
+  if (nextURL != "") processSearch(corsProxy + encodeURIComponent(nextURL));
 }
 
 function playPreview(ele, audioURL) {

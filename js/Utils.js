@@ -15,7 +15,7 @@ function sendRequest(reqURL, positiveCallback, negativeCallback) {
 
   let onSuccess = (response) => {
     processServerResponse(
-      { status: "success", ...JSON.parse(response) },
+      { ...JSON.parse(response), status: "success" },
       positiveCallback,
       negativeCallback
     );
@@ -36,13 +36,16 @@ function sendRequest(reqURL, positiveCallback, negativeCallback) {
 
   xhttp.open("GET", reqURL, true);
 
-  xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  // xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
   xhttp.send();
 }
 
 function processServerResponse(response, positiveCallback, negativeCallback) {
   console.log("response:", response);
+
+  if (response.hasOwnProperty("contents"))
+    response = { status: response.status, ...response.contents };
 
   if (response.status == "success") {
     if (positiveCallback != null) positiveCallback(response);
