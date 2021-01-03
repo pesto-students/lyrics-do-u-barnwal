@@ -132,12 +132,12 @@ function generateSingleSongItem(song = {}) {
 
 function gotoPreviousPage() {
   if (previousURL != "")
-    processSearch("https://cors-anywhere.herokuapp.com/" + previousURL);
+    processSearch("https://cors-proxy.isolpro.in?url=" + previousURL);
 }
 
 function gotoNextPage() {
   if (nextURL != "")
-    processSearch("https://cors-anywhere.herokuapp.com/" + nextURL);
+    processSearch("https://cors-proxy.isolpro.in?url=" + nextURL);
 }
 
 function playPreview(ele, audioURL) {
