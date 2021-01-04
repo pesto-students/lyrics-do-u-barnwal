@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song - Lyrics Do</title>
+
+  <link rel="shortcut icon" href="./assets/logo.png">
+
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <main>
+
+    <!-- - Header: Start - -->
+    <div class="header">
+      <div class="overlay">
+        <h1 class="heading">Lyrics Do</h1>
+      </div>
+    </div>
+    <!-- - Header: End - -->
+
+    <!-- - Content: Start - -->
+    <div class="content">
+      <div id="txtInfo" class="text">No song selected to show!</div>
+
+      <div id="loader" class="inline-loader" style="display: none;"><img src="./assets/loader.gif" alt=""></div>
+
+      <div id="songTitle" class="song-title" style="display: none;">
+        <span id="txtSongName" class="name"></span>
+        <a id="txtSongAuthor" href="#" class="author"></a>
+      </div>
+
+      <div id="songText" class="song-text" style="display: none;">
+      </div>
+    </div>
+    <!-- - Content: End - -->
+  </main>
+
+  <script src="./js/Utils.js"></script>
+  <script src="./js/song.js"></script>
+</body>
+
+</html>

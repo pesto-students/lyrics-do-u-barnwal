@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyrics Do</title>
+
+  <link rel="shortcut icon" href="./assets/logo.png">
+
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <main>
+
+    <!-- - Header: Start - -->
+    <div class="header">
+      <div class="overlay">
+        <h1 class="heading">Lyrics Do</h1>
+        <div class="search">
+          <input id="inputKeyword" type="text" placeholder="Search for artist or song..." oninput="processSearch()">
+          <button class="btn" onclick="processSearch()">
+            <img src="./assets/icons/search.png" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- - Header: End - -->
+
+    <!-- - Content: Start - -->
+    <div class="content">
+      <div id="txtInfo" class="text">Go head search for something!</div>
+
+      <div id="loader" class="inline-loader" style="display: none;"><img src="./assets/loader.gif" alt=""></div>
+
+      <div id="listSongs" class="list-songs">
+
+        <!-- + Single Song item: Start + -->
+        <!-- <div class="single-song">
+
+          <div class="album">
+            <img
+              src="http://cdn-images.deezer.com/images/cover/80563ccd202b7115fb1d20cbed024124/250x250-000000-80-0-0.jpg">
+            <div class="overlay">
+              <img src="./assets/icons/play.png" title="Play Preview">
+            </div>
+          </div>
+
+          <div class="description">
+            <div class="artist">
+              <img
+                src="http://cdn-images.deezer.com/images/artist/ce50c83acd0fff3eb9ee9d68eb648fb1/250x250-000000-80-0-0.jpg">
+              <h5><a href="#">Glenn Miller</a></h5>
+            </div>
+            <h3><a href="#">Stairway to the Stars</a></h3>
+            <p><a href="#">Stop the wedding</a></p>
+          </div>
+
+          <div class="actions">
+            <button class="btn">Show Lyrics</button>
+          </div>
+
+        </div> -->
+        <!-- + Single Song item: End + -->
+
+      </div>
+
+      <div id="pagination" class="pagination" style="display: none;">
+        <button class="btn" id="btnPrevious" onclick="gotoPreviousPage()">Previous</button>
+        <button class="btn" id="btnNext" onclick="gotoNextPage()">Next</button>
+      </div>
+    </div>
+    <!-- - Content: End - -->
+  </main>
+
+  <script src="./js/Utils.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
